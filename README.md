@@ -6,35 +6,6 @@
 
 ---
 
-## Цели занятия
-
-По завершении работы вы будете уметь:
-
-- Проектировать классы с правильной инкапсуляцией и использовать блоки инициализации
-- Применять модификаторы доступа (`public`, `protected`, package-private, `private`)
-- Строить иерархии наследования с абстрактными классами
-- Использовать `sealed`-интерфейсы и паттерн-матчинг в `switch` (Java 21)
-- Создавать интерфейсы с `default`, `static` и `private` методами
-- Работать с двумерными и зубчатыми массивами
-- Анализировать строки и понимать String Pool
-- Объявлять `record` и `enum` с полями, методами и конструкторами
-- Использовать `EnumMap` и `EnumSet`
-- Создавать собственные аннотации и обрабатывать их через Reflection API
-- Писать лямбда-выражения, ссылки на методы и Stream API конвейеры
-- Применять композицию функций и локальные классы
-
-### Стартовый код и научная точность
-
-- В репозитории — **учебный каркас**: заглушки (`return 0`, `return ""` и т.п.) нужно заменить своей реализацией по Javadoc. Теория в комментариях и в `answers/` согласована с **Java 21** и обычной терминологией ООП.
-- Задание **1.2**: файл `company/app/HRSystem.java` намеренно не компилируется до исправлений в `company/core/EmployeeFixed.java` — это часть задания.
-- Проверка компиляции и список точек входа для преподавателя: [docs/ПРОВЕРКА_ПРЕПОДАВАТЕЛЮ.md](docs/ПРОВЕРКА_ПРЕПОДАВАТЕЛЮ.md).
-
-### Материал для аудитории (преподаватель)
-
-В каталоге [docs/slides/](docs/slides/) — **веб-презентация** (`index.html`): столпы ООП (инкапсуляция, наследование, полиморфизм), конструкции Java (класс, abstract, interface, sealed, record, enum) и связь с частями лабораторной. Есть **заметки докладчика** (кнопка или клавиша `N`). Откройте файл в браузере (см. [docs/slides/README.md](docs/slides/README.md)).
-
----
-
 ## Требования (что установить перед началом)
 
 | Программа | Версия | Ссылка для скачивания |
@@ -84,11 +55,9 @@ ssh-keygen -t ed25519 -C "ваш_email@example.com"
 ### 2.4. Скопируйте публичный ключ
 
 ```bash
-# macOS / Linux:
+# Git Bash:
 cat ~/.ssh/id_ed25519.pub        # скопируйте весь вывод
 
-# Windows (Git Bash):
-clip < ~/.ssh/id_ed25519.pub     # копируется в буфер обмена автоматически
 ```
 
 ### 2.5. Добавьте ключ в GitHub
@@ -192,42 +161,6 @@ File → Project Structure → Project
 7. ЗАФИКСИРУЙТЕ прогресс (см. Шаг 6).
 ```
 
-### Организация пакетов
-
-Каждая **часть** лабораторной (`part1` … `part8`) разбита на **подпакеты** `partN.partN_M`, где `M` — номер подзадания из [методички](https://aliebraheem-fun.github.io/Modern-Programming-Technologies/#/practice2) (например, задание **2.1** → пакет `part2.part2_1`).  
-В IntelliJ путь к файлу совпадает с пакетом: `part2/part2_1/Employee.java` → `package part2.part2_1;`.
-
-Задание **1.2** остаётся в пакетах `company.core` / `company.app` (как в условии).
-
-**Запуск по полному имени класса:** если IntelliJ не находит `main`, откройте [docs/ЗАПУСК_КЛАССОВ.md](docs/ЗАПУСК_КЛАССОВ.md) и скопируйте полное имя (например `part2.part2_1.EmployeeBonus`) в конфигурацию запуска.
-
-### Таблица всех заданий
-
-| № | Задание | Файл(ы) для редактирования | Как запустить |
-|---|---------|---------------------------|--------------|
-| 1.1 | Банковский счёт | `part1/part1_1/BankAccount.java` | ▶ рядом с `main` |
-| 1.2 | Модификаторы доступа | `company/core/EmployeeFixed.java` + `answers/task1_2_access_table.md` | ▶ в `company/app/HRSystem.java` |
-| 1.3 | Ключевое слово `var` | `part1/part1_3/VarDemo.java` | ▶ рядом с `main` |
-| 2.1 | Иерархия сотрудников | `part2/part2_1/` — `Employee`, `Manager`, `Developer`, `Intern` | ▶ в `part2/part2_1/EmployeeBonus.java` |
-| 2.2 | Sealed-интерфейс | `part2/part2_2/` — `PaymentMethod`, `CreditCard`, `BankTransfer`, `CryptoWallet`, `PaymentProcessor` | ▶ в `part2/part2_2/PaymentDemo.java` |
-| 2.3 | Интерфейс Loggable | `part2/part2_3/` — `Loggable`, `DatabaseService`, `AuthService` | ▶ в `part2/part2_3/LoggableDemo.java` |
-| 2.4 | Абстр. класс vs интерфейс | `answers/task2_4_abstract_vs_interface.md` | Письменно |
-| 3.1 | Матричные операции | `part3/part3_1/MatrixOperations.java` | ▶ рядом с `main` |
-| 3.2 | Журнал оценок | `part3/part3_2/GradeJournal.java` | ▶ рядом с `main` |
-| 4.1 | Анализатор текста | `part4/part4_1/TextAnalyzer.java` | ▶ рядом с `main` |
-| 4.2 | String Pool | `part4/part4_2/StringPoolLab.java` | ▶ рядом с `main` |
-| 5.1 | Система оценок | `part5/part5_1/GradeSystem.java` | ▶ рядом с `main` |
-| 5.2 | Records и Enums | `part5/part5_2/RecordEnumDemo.java` | ▶ рядом с `main` |
-| 6.1 | Аннотации и Reflection | `part6/part6_1/TestInfo.java` + `part6/part6_1/ValidationFramework.java` | ▶ в `part6/part6_1/ValidationFramework.java` |
-| 7.1 | Рефакторинг | `part7/part7_1/RefactorStep1.java`, `RefactorStep2.java` (+ образец `RefactorOriginal.java`) | ▶ рядом с `main` |
-| 7.2 | Stream API | `part7/part7_2/OrderAnalytics.java` | ▶ рядом с `main` |
-| 7.3 | Конвейер функций | `part7/part7_3/TextPipeline.java` | ▶ рядом с `main` |
-| 8.1 | Библиотечная система | `part8/part8_1/LibrarySystem.java` | ▶ рядом с `main` |
-| 9 | Эксперименты jshell | `answers/part9_jshell.md` | `jshell` в терминале |
-| 10 | Контрольные вопросы | `answers/part10_questions.md` | Письменно |
-
----
-
 ## Шаг 6. Сохранение прогресса (после каждого задания)
 
 ### Через IntelliJ IDEA (рекомендуется)
@@ -245,17 +178,6 @@ File → Project Structure → Project
 
 Откройте `https://github.com/ВАШ_ЛОГИН/practice2` — новый коммит должен быть виден.
 
----
-
-## Шаг 7. Синхронизация с репозиторием преподавателя
-
-Если преподаватель обновил задания после вашего форка:
-
-1. В IntelliJ: **Git → Manage Remotes...**
-2. Нажмите **+** → Name: `upstream`, URL: `git@github.com:Mohanad0101/practice2.git` → OK.
-3. **Git → Fetch** — получить обновления.
-4. **Git → Merge...** → выберите `upstream/main` → Merge.
-5. **Ctrl+Shift+K** (Push) — отправить слитые изменения.
 
 ---
 
