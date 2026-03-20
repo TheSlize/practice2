@@ -38,17 +38,12 @@ public class LibrarySystem {
         private final String russianName;
 
         Genre(String russianName) {
-            // ▼ ВАШ КОД ЗДЕСЬ ▼
             this.russianName = russianName;
-            // ▲ КОНЕЦ ВАШЕГО КОДА ▲
         }
 
         /** Возвращает русское название жанра. */
         public String getRussianName() {
-            // ▼ ВАШ КОД ЗДЕСЬ ▼
-return "";
-
-            // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+            return "";
         }
 
         /**
@@ -79,7 +74,6 @@ return "";
      */
     record Book(String title, String author, int year, Genre genre, double price) {
         Book {
-            // TODO: добавьте проверки, выбросите IllegalArgumentException при нарушении
             if (title == null || title.isBlank()) {
                 throw new IllegalArgumentException("Название не может быть пустым");
             }
@@ -147,9 +141,7 @@ return "";
 
         /** Добавляет элемент в библиотеку. */
         public void add(LibraryItem item) {
-            // ▼ ВАШ КОД ЗДЕСЬ ▼
             items.add(item);
-            // ▲ КОНЕЦ ВАШЕГО КОДА ▲
         }
 
         /**
@@ -164,9 +156,12 @@ return "";
          *   }
          */
         public void printCatalog() {
-            // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-            // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+            for (LibraryItem item : items) {
+                switch (item) {
+                    case PhysicalBook pb -> System.out.println("Физ.: " + pb.getInfo());
+                    case EBook eb        -> System.out.println("Эл.:  " + eb.getInfo());
+                }
+            }
         }
 
         /**
@@ -191,9 +186,7 @@ return "";
          *   return items.stream().mapToDouble(i -> i.book().price()).sum();
          */
         public double totalValue() {
-            // ▼ ВАШ КОД ЗДЕСЬ ▼
-return 0.0;
-            // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+            return items.stream().mapToDouble(i -> i.book().price()).sum();
         }
 
         /**
@@ -203,9 +196,7 @@ return 0.0;
          *   return items.stream().map(LibraryItem::book).max(Comparator.comparingDouble(Book::price));
          */
         public Optional<Book> mostExpensive() {
-            // ▼ ВАШ КОД ЗДЕСЬ ▼
-return null;
-           // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+            return items.stream().map(LibraryItem::book).max(Comparator.comparingDouble(Book::price));
         }
 
         /**
@@ -215,7 +206,6 @@ return null;
          *   items.stream().map(LibraryItem::book).filter(b -> b.genre() == genre).map(Book::author).distinct().sorted().collect(Collectors.toList());
          */
         public List<String> authorsByGenre(Genre genre) {
-            // ▼ ВАШ КОД ЗДЕСЬ ▼
             return items.stream()
                     .map(LibraryItem::book)
                     .filter(b -> b.genre() == genre)
@@ -223,7 +213,6 @@ return null;
                     .distinct()
                     .sorted()
                     .collect(Collectors.toList());
-            // ▲ КОНЕЦ ВАШЕГО КОДА ▲
         }
     }
 
@@ -231,24 +220,6 @@ return null;
 
     public static void main(String[] args) {
         Library lib = new Library();
-
-        // TODO: добавьте 8+ книг (физические и электронные). Пример:
-        // lib.add(new PhysicalBook(new Book("Война и мир", "Толстой", 1869, Genre.FICTION, 800), "A-12"));
-        // lib.add(new EBook(new Book("Clean Code", "Мартин", 2008, Genre.PROGRAMMING, 1500), "PDF", 5.2));
-
-        // TODO: вызовите и продемонстрируйте все методы Library:
-        // System.out.println("=== Каталог ===");
-        // lib.printCatalog();
-        //
-        // System.out.println("\n=== По жанрам ===");
-        // lib.groupByGenre().forEach((genre, list) -> { ... });
-        //
-        // System.out.printf("\nОбщая стоимость: %.2f руб.%n", lib.totalValue());
-        //
-        // lib.mostExpensive().ifPresent(b -> System.out.println("Самая дорогая: " + b));
-        //
-        // System.out.println("\nАвторы программирования: " + lib.authorsByGenre(Genre.PROGRAMMING));
-
 
         lib.add(new PhysicalBook(new Book("Война и мир", "Толстой", 1869, Genre.FICTION, 800), "A-12"));
         lib.add(new PhysicalBook(new Book("История России", "Соловьёв", 1851, Genre.HISTORY, 1200), "H-3"));

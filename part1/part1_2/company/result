@@ -1,0 +1,8 @@
+Строки A и E компилируются корректно, остальные - нет.
+
+B: 'age' has protected access in 'part1.part1_2.company.core.Employee'
+C: 'salary' is not public in 'part1.part1_2.company.core.Employee'. Cannot be accessed from outside package
+D: 'password' has private access in 'part1.part1_2.company.core.Employee'
+F: 'promote(double)' has protected access in 'part1.part1_2.company.core.Employee'
+G: 'printSummary()' is not public in 'part1.part1_2.company.core.Employee'. Cannot be accessed from outside package
+H: 'validatePassword(java.lang.String)' has private access in 'part1.part1_2.company.core.Employee'

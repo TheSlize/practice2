@@ -1,4 +1,4 @@
-package company.core;
+package part1.part1_2.company.core;
 
 /**
  * Задание 1.2 — Исправленный Employee с правильной инкапсуляцией
@@ -38,22 +38,18 @@ public class EmployeeFixed {
     /** Верните name */
     public String getName() {
         // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return null; // TODO: верните name
+        return name;
         // ▲ КОНЕЦ ВАШЕГО КОДА ▲
     }
 
     /** Верните age */
     public int getAge() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните age
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return age;
     }
 
     /** Верните salary */
     public double getSalary() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните salary
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return salary;
     }
 
     // Геттер для password НЕ создаём — пароль не должен покидать объект.
@@ -63,9 +59,7 @@ public class EmployeeFixed {
      * Подсказка: this.salary += raise;
      */
     public void promote(double raise) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        this.salary += raise;
     }
 
     /**
@@ -73,9 +67,7 @@ public class EmployeeFixed {
      * Формат: "Иван, 30 лет, 80000.0 руб."
      */
     public void printSummary() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        System.out.println(getName() + ", " + getAge() + " лет, " + getSalary() + " руб.");
     }
 
     private boolean validatePassword(String input) {
@@ -87,8 +79,6 @@ public class EmployeeFixed {
      * Подсказка: return validatePassword(input);
      */
     public boolean authenticate(String input) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return false; // TODO: верните validatePassword(input)
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return validatePassword(input);
     }
 }

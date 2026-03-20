@@ -19,8 +19,6 @@ public class Intern extends Employee {
      */
     @Override
     public double calculateBonus() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните 10000
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return 10000;
     }
 }

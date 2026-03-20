@@ -30,45 +30,36 @@ public class RefactorStep2 {
         //   Можно ли заменить (a, b) -> Integer.compare(a.length(), b.length()) на ссылку?
         //   Подсказка: нет, потому что вызывается a.length() — это не прямой вызов одного метода.
         //   Используйте Comparator.comparingInt(String::length)
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        // cities.sort(Comparator.comparingInt(String::length));
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        cities.sort(Comparator.comparingInt(String::length));
 
         // 2. Вывод каждого элемента
-        //   city -> System.out.println(city) → System.out::println
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        // cities.forEach(System.out::println);
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        cities.forEach(System.out::println);
 
         // 3. Преобразование в верхний регистр
-        //   s -> s.toUpperCase() → String::toUpperCase
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        // Function<String, String> toUpper = String::toUpperCase;
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        Function<String, String> toUpper = String::toUpperCase;
 
         // 4. Проверка длины > 5
         //   Можно ли заменить s -> s.length() > 5 на ссылку?
         //   Ответ: нет — это не вызов одного метода, а выражение с операцией сравнения.
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        // Predicate<String> isLong = s -> s.length() > 5;  // оставляем лямбду
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        Predicate<String> isLong = s -> s.length() > 5;  // оставляем лямбду
 
         // 5. Формирование строки с восклицательным знаком
         //   Можно ли заменить s -> s + "!" на ссылку?
         //   Ответ: нет — это конкатенация, а не вызов метода.
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        // Function<String, String> exclaim = s -> s + "!";  // оставляем лямбду
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        Function<String, String> exclaim = s -> s + "!";  // оставляем лямбду
 
         // 6. Создание нового списка
         //   () -> new ArrayList<>() → ArrayList::new
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        // Supplier<List<String>> listFactory = ArrayList::new;
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        Supplier<List<String>> listFactory = ArrayList::new;
 
         // Использование (скопируйте из RefactorStep1 и адаптируйте)
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
+        List<String> result = listFactory.get();
+        for (String city : cities) {
+            if (isLong.test(city)) {
+                result.add(toUpper.apply(city));
+            }
+        }
 
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        System.out.println("Длинные города: " + result);
     }
 }

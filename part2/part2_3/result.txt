@@ -1,0 +1,7 @@
+Уровень логирования: INFO
+
+[20:59:18] [DatabaseService] Подключение к jdbc:postgresql://localhost/mydb
+[20:59:18] [DatabaseService] Подключение установлено
+
+[20:59:18] [AuthService] Вход пользователя: admin — успешно
+[20:59:18] [AuthService] ОШИБКА: Вход пользователя: hacker — отказано

@@ -1,5 +1,7 @@
 package part3.part3_2;
 
+import java.util.Arrays;
+
 /**
  * Задание 3.2 — Зубчатый массив: журнал оценок
  *
@@ -41,7 +43,7 @@ public class GradeJournal {
      */
     public static double average(int[] grades) {
         // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: просуммируйте все элементы, разделите на (double) grades.length
+        return Arrays.stream(grades).sum() / (double) grades.length; // TODO: просуммируйте все элементы, разделите на (double) grades.length
         // ▲ КОНЕЦ ВАШЕГО КОДА ▲
     }
 
@@ -52,9 +54,7 @@ public class GradeJournal {
      * и обновляйте максимум.
      */
     public static int max(int[] grades) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: начните с grades[0], пройдите циклом, обновляйте максимум
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return Arrays.stream(grades).max().getAsInt();
     }
 
     /**
@@ -64,9 +64,7 @@ public class GradeJournal {
      * и обновляйте минимум (if (grades[i] < min) min = grades[i];).
      */
     public static int min(int[] grades) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: начните с grades[0], пройдите циклом, обновляйте минимум
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return Arrays.stream(grades).min().getAsInt();
     }
 
     // === Метод main ===
@@ -74,7 +72,6 @@ public class GradeJournal {
     public static void main(String[] args) {
         System.out.println("=== Журнал оценок ===");
 
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
         for (int i = 0; i < names.length; i++) {
             System.out.printf("%-8s| Оценок: %d | Средний: %.2f | Мин: %d | Макс: %d%n",
                     names[i], grades[i].length, average(grades[i]), min(grades[i]), max(grades[i]));
@@ -89,6 +86,5 @@ public class GradeJournal {
             }
         }
         System.out.printf("%nЛучший студент: %s (средний балл: %.2f)%n", bestName, bestAvg);
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
     }
 }

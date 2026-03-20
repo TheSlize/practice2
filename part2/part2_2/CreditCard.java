@@ -20,9 +20,7 @@ public record CreditCard(String cardNumber, String holder) implements PaymentMet
      */
     @Override
     public String process(double amount) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return ""; // TODO: верните "Оплата картой *" + cardNumber.substring(cardNumber.length()-4) + ": " + amount + " руб."
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return "Оплата картой *" + cardNumber.substring(cardNumber.length() - 4) + ": " + amount + " руб.";
     }
 
     /**
@@ -32,8 +30,6 @@ public record CreditCard(String cardNumber, String holder) implements PaymentMet
      */
     @Override
     public double fee(double amount) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните amount * 0.02
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return amount * 0.02;
     }
 }

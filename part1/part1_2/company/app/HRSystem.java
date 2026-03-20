@@ -1,6 +1,7 @@
-package company.app;
+package part1.part1_2.company.app;
 
-import company.core.Employee;
+import part1.part1_2.company.core.Employee;
+import part1.part1_2.company.core.EmployeeFixed;
 
 /**
  * Задание 1.2 — Модификаторы доступа (тестовый класс)
@@ -9,7 +10,7 @@ import company.core.Employee;
  *
  * Для каждой строки (A–H) определите:
  *   1. Скомпилируется ли она?
- *   2. Если нет — какой модификатор доступа и почему он не виден из company.app?
+ *   2. Если нет — какой модификатор доступа и почему он не виден из part1.part1_2.company.app?
  *
  * Заполните таблицу в answers/task1_2_access_table.md.
  * Подсказка: закомментируйте строки, которые не компилируются,

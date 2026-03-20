@@ -1,5 +1,8 @@
 package part4.part4_1;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * Задание 4.1 — Анализатор текста
  *
@@ -44,9 +47,7 @@ public class TextAnalyzer {
      * Подсказка: return text.split(" ").length;
      */
     public int wordCount() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните text.split(" ").length
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return text.split(" ").length;
     }
 
     /**
@@ -59,12 +60,9 @@ public class TextAnalyzer {
 
         String[] words = text.split(" ");
         String best = words[0];
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
-        return best;
-
+        return Arrays.stream(words)
+                .max(Comparator.comparingInt(String::length))
+                .orElse(best);
     }
 
     /**
@@ -96,7 +94,6 @@ public class TextAnalyzer {
      *   3. Пока index != -1: увеличьте счётчик, сдвиньте fromIndex = index + 1.
      */
     public int countOccurrences(String target) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
         String lower = text.toLowerCase();
         String t = target.toLowerCase();
         int count = 0;
@@ -106,8 +103,7 @@ public class TextAnalyzer {
             count++;
             from = idx + 1;
         }
-        return 0; // ???
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return count;
     }
 
     /**

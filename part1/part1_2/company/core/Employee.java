@@ -1,4 +1,4 @@
-package company.core;
+package part1.part1_2.company.core;
 
 /**
  * Задание 1.2 — Модификаторы доступа (исходный класс)
@@ -13,7 +13,7 @@ package company.core;
  *   - (без модификатора, package-private) → только в том же пакете
  *   - private   → только внутри своего класса
  *
- * Employee в пакете company.core, HRSystem в company.app.
+ * Employee в пакете part1.part1_2.company.core, HRSystem в part1.part1_2.company.app.
  * HRSystem НЕ наследует Employee.
  */
 public class Employee {

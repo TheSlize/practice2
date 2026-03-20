@@ -13,9 +13,7 @@ public class DatabaseService implements Loggable {
      */
     @Override
     public String getComponentName() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return ""; // TODO: верните "DatabaseService"
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return "DatabaseService";
     }
 
     /**
@@ -26,8 +24,7 @@ public class DatabaseService implements Loggable {
      *   2. log("Подключение установлено");
      */
     public void connect(String url) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        log("Подключение к " + url);
+        log("Подключение установлено");
     }
 }

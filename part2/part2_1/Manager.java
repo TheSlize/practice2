@@ -15,10 +15,7 @@ public class Manager extends Employee {
 
     public Manager(String name, double baseSalary, int teamSize) {
         super(name, baseSalary);
-        // TODO: сохраните teamSize в поле
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        this.teamSize = teamSize;
     }
 
     /**
@@ -28,8 +25,6 @@ public class Manager extends Employee {
      */
     @Override
     public double calculateBonus() {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-        return 0; // TODO: верните baseSalary * 0.15 + teamSize * 5000
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        return baseSalary * 0.15 + teamSize * 5000;
     }
 }

@@ -30,8 +30,10 @@ public class PaymentProcessor {
      * @param pm способ оплаты
      */
     public static void describe(PaymentMethod pm) {
-        // ▼ ВАШ КОД ЗДЕСЬ ▼
-
-        // ▲ КОНЕЦ ВАШЕГО КОДА ▲
+        switch (pm) {
+            case CreditCard cc   -> System.out.println("Карта: " + cc.holder());
+            case BankTransfer bt -> System.out.println("Банк: " + bt.bankName());
+            case CryptoWallet cw -> System.out.println("Крипто: " + cw.currency());
+       }
     }
 }

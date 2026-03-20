@@ -183,7 +183,7 @@ File → Project Structure → Project
 
 ## Что сдавать
 
-- Все файлы `.java` в папках `part1/`–`part8/` (включая подпапки `partN/partN_M/`) и `company/` — с реализованными методами
+- Все файлы `.java` в папках `part1/`–`part8/` (включая подпапки `partN/partN_M/`) и `part1.part1_2.company/` — с реализованными методами
 - `answers/task1_2_access_table.md` — заполненная таблица модификаторов
 - `answers/task2_4_abstract_vs_interface.md` — заполненная таблица сравнения
 - `answers/part9_jshell.md` — результаты экспериментов в jshell
@@ -214,7 +214,7 @@ practice2/
 │   ├── task2_4_abstract_vs_interface.md
 │   ├── part9_jshell.md
 │   └── part10_questions.md
-├── company/                    ← задание 1.2 (company.core / company.app)
+├── part1.part1_2.company/                    ← задание 1.2 (part1.part1_2.company.core / part1.part1_2.company.app)
 ├── part1/
 │   ├── part1_1/                ← пакет part1.part1_1 — задание 1.1
 │   └── part1_3/                ← пакет part1.part1_3 — задание 1.3

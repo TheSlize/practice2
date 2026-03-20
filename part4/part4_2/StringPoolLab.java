@@ -40,33 +40,32 @@ public class StringPoolLab {
 
         System.out.println("=== Сравнение строк ===\n");
 
-        // Прогноз: ____ (true/false). Причина: ____
+        // Прогноз: true/true. Причина: обе ссылки указывают на один и тот же литерал из String Pool, содержимое тоже одинаковое.
         System.out.println("s1 == s2      : " + (s1 == s2));
         System.out.println("s1.equals(s2) : " + s1.equals(s2));
         System.out.println();
 
-        // TODO: запишите свой прогноз ПЕРЕД запуском
-        // Прогноз: ____ (true/false). Причина: ____
+        // Прогноз: false/true. Причина: s1 — ссылка на строку из пула, а s3 — новый объект в куче; содержимое строк одинаковое.
         System.out.println("s1 == s3      : " + (s1 == s3));
         System.out.println("s1.equals(s3) : " + s1.equals(s3));
         System.out.println();
 
-        // Прогноз: ____ (true/false). Причина: ____
+        // Прогноз: false/true. Причина: s3 и s4 созданы через new, это два разных объекта в памяти, хотя текст внутри одинаковый.
         System.out.println("s3 == s4      : " + (s3 == s4));
         System.out.println("s3.equals(s4) : " + s3.equals(s4));
         System.out.println();
 
-        // Прогноз: ____ (true/false). Причина: ____
+        // Прогноз: true/true. Причина: intern() возвращает ссылку на строку из пула, а s1 уже ссылается на этот же объект.
         System.out.println("s1 == s5      : " + (s1 == s5));
         System.out.println("s1.equals(s5) : " + s1.equals(s5));
         System.out.println();
 
-        // Прогноз: ____ (true/false). Причина: ____
+        // Прогноз: true/true. Причина: конкатенация строковых литералов вычисляется на этапе компиляции, результат попадает в String Pool.
         System.out.println("s1 == s6      : " + (s1 == s6));
         System.out.println("s1.equals(s6) : " + s1.equals(s6));
         System.out.println();
 
-        // Прогноз: ____ (true/false). Причина: ____
+        // Прогноз: false/true. Причина: конкатенация с переменной выполняется во время выполнения, создаётся новый объект String вне пула.
         System.out.println("s1 == s7      : " + (s1 == s7));
         System.out.println("s1.equals(s7) : " + s1.equals(s7));
         System.out.println();
@@ -78,7 +77,7 @@ public class StringPoolLab {
         sb.append('H').append('e').append('l').append('l').append('o');
         String s8 = sb.toString();
 
-        // Прогноз: ____ (true/false). Причина: ____
+        // Прогноз: false/true. Причина: toString() у StringBuilder создаёт новый объект String, но его содержимое совпадает с s1.
         System.out.println("s1 == s8      : " + (s1 == s8));
         System.out.println("s1.equals(s8) : " + s1.equals(s8));
     }
